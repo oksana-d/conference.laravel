@@ -79,7 +79,7 @@ $(document).ready(function () {
         },
         submitHandler: function(form) {
             $(form).ajaxSubmit({
-                url: '/main/saveUserInfo',
+                url: '/saveUserInfo',
                 type: 'post',
                 enctype: 'multipart/form-data',
                 success: function (data) {
@@ -102,7 +102,7 @@ $(document).ready(function () {
         },
         submitHandler: function(form) {
             $.ajax({
-                url        : '/main/updateUserInfo',
+                url        : '/updateUserInfo',
                 type       : 'post',
                 dataType: 'text',
                 data       : new FormData(form),
