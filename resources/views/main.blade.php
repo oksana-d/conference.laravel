@@ -39,7 +39,7 @@
         </div>
         <div class="card-body">
             <div id="filling-form">
-                <?php if (!isset($_COOKIE['idUser'])): ?>
+                @if (!\Illuminate\Support\Facades\Session::has('idUser')) ?>
                 <form id="first-form">
                     <div class="row">
                         <div class="col-md-4">
@@ -323,8 +323,8 @@
                         </div>
                     </div>
                 </form>
-                <?php endif; ?>
-                <?php if (isset($_COOKIE['idUser'])): ?>
+                @endif
+                @if (\Illuminate\Support\Facades\Session::has('idUser'))
                 <form id="second-form">
                     <div class="row">
                         <div class="col-md-6 col-xl-4">
@@ -360,7 +360,7 @@
                         </div>
                     </div>
                 </form>
-                <?php endif; ?>
+                @endif
             </div>
         </div>
     </div>
