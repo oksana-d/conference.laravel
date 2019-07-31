@@ -13,10 +13,10 @@ class MainController extends Controller
         return view('main');
     }
 
-    public function checkExistsEmail()
+    public function checkExistsEmail(Request $request)
     {
-        if(isset($_POST['email'])) {
-            if (Main::checkExistsEmail($_POST['email'])) {
+        if($request->has('email')) {
+            if (Main::checkExistsEmail($request->input('email'))) {
                 echo(json_encode(false));
             } else {
                 echo(json_encode(true));
