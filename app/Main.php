@@ -27,4 +27,15 @@ class Main extends Model
 
         return $id;
     }
+
+    public static function updateUserInfo($data, $id, $photo)
+    {
+        DB::table('profile')->insert([
+            'idUser' => $id,
+            'company' => $data['company'],
+            'position' => $data['position'],
+            'aboutMe' => $data['aboutMe'],
+            'photo' => $photo
+        ]);
+    }
 }
