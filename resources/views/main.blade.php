@@ -39,7 +39,7 @@
         </div>
         <div class="card-body">
             <div id="filling-form">
-                @if (!\Illuminate\Support\Facades\Session::has('idUser')) ?>
+                @if (!\Illuminate\Support\Facades\Session::has('idUser'))
                 <form id="first-form">
                     <div class="row">
                         <div class="col-md-4">
