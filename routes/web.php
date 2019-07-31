@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
+use App\Main;
+Route::get('/', 'MainController@index');
+Route::post('checkExistsEmail', 'MainController@checkExistsEmail');
+

@@ -32,6 +32,12 @@ $(document).ready(function () {
         $('#phone-number').mask(phoneMask[country]);
     });
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     $('#first-form').validate({
         rules: {
             firstname: {
@@ -61,7 +67,7 @@ $(document).ready(function () {
                 email: true,
                 maxlength: 50,
                 remote: {
-                    url: '/main/checkExistsEmail',
+                    url: '/checkExistsEmail',
                     type: 'post'
                 }
             }
