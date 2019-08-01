@@ -16,13 +16,15 @@ class ProfileTableSeeder extends Seeder
             'idProfile' => '1',
             'idUser' => '1',
             'company' => 'albedo',
-            'position' => 'Web-developer'
+            'position' => 'Web-developer',
+            'photo' => 'no-image.png'
         ]);
         DB::table('profile')->insert([
             'idProfile' => '2',
             'idUser' => '2',
             'company' => 'bwt',
-            'position' => 'Web-developer'
+            'position' => 'Web-developer',
+            'photo' => 'no-image.png'
         ]);
     }
 }
