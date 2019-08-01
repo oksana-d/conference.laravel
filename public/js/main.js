@@ -38,56 +38,57 @@ $(document).ready(function () {
         }
     });
 
-    $('#first-form').validate({
-        rules: {
-            firstname: {
-                required: true,
-                maxlength: 50
-            },
-            lastname: {
-                required: true,
-                maxlength: 50
-            },
-            birthday: {
-                required: true
-            },
-            reportSubject: {
-                required: true,
-                maxlength: 250
-            },
-            country: {
-                required: true
-            },
-            phone: {
-                required: true,
-                maxlength: 50
-            },
-            email: {
-                required: true,
-                email: true,
-                maxlength: 50,
-                remote: {
-                    url: '/checkExistsEmail',
-                    type: 'post'
-                }
-            }
-        },
-        messages: {
-            email: {
-                remote: 'User with this email already exists.'
-            }
-        },
-        submitHandler: function(form) {
-            $(form).ajaxSubmit({
-                url: '/saveUserInfo',
-                type: 'post',
-                enctype: 'multipart/form-data',
-                success: function (data) {
-                    $('#filling-form').html(data);
-                }
-            });
-        }
-    });
+
+    // $('#first-form').validate({
+    //     rules: {
+    //         firstname: {
+    //             required: true,
+    //             maxlength: 50
+    //         },
+    //         lastname: {
+    //             required: true,
+    //             maxlength: 50
+    //         },
+    //         birthday: {
+    //             required: true
+    //         },
+    //         reportSubject: {
+    //             required: true,
+    //             maxlength: 250
+    //         },
+    //         country: {
+    //             required: true
+    //         },
+    //         phone: {
+    //             required: true,
+    //             maxlength: 50
+    //         },
+    //         email: {
+    //             required: true,
+    //             email: true,
+    //             maxlength: 50,
+    //             remote: {
+    //                 url: '/checkExistsEmail',
+    //                 type: 'post'
+    //             }
+    //         }
+    //     },
+    //     messages: {
+    //         email: {
+    //             remote: 'User with this email already exists.'
+    //         }
+    //     },
+    //     submitHandler: function(form) {
+    //         $(form).ajaxSubmit({
+    //             url: '/saveUserInfo',
+    //             type: 'post',
+    //             enctype: 'multipart/form-data',
+    //             success: function (data) {
+    //                 $('#filling-form').html(data);
+    //             }
+    //         });
+    //     }
+    // });
 
     $('#second-form').validate({
         rules: {

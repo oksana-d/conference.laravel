@@ -9,7 +9,11 @@
         <div class="card-body">
             <div id="filling-form">
                 @if (!\Illuminate\Support\Facades\Session::has('idUser'))
-                    <form id="first-form">
+                    <form id="first-form" method="post" action="/saveUserInfo">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                         @endforeach
+                        @csrf
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
