@@ -8,6 +8,6 @@
 </div>
 <div class="row">
     <div class="col">
-        <a href="#" class="float-right">All members ({{ $countMembers }})</a>
+        <a href="{{ url('members') }}" class="float-right">All members ({{ $countMembers }})</a>
     </div>
 </div>
