@@ -38,4 +38,9 @@ class Main extends Model
             'photo' => $photo
         ]);
     }
+
+    public static function getCountAllMembers(){
+        $countUser = DB::table('user')->count();
+        return $countUser;
+    }
 }
