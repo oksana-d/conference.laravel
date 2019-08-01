@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 
-class MainController extends Controller
+class HomeController extends Controller
 {
     public function index()
     {
-        return view('main');
+        return view('home');
     }
 
     public function checkExistsEmail(Request $request)

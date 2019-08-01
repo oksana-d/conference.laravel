@@ -12,8 +12,8 @@
 */
 
 use App\Main;
-Route::get('/', 'MainController@index');
-Route::post('checkExistsEmail', 'MainController@checkExistsEmail');
-Route::post('saveUserInfo', 'MainController@saveUserInfo');
-Route::post('updateUserInfo', 'MainController@updateUserInfo');
-Route::get('/members', 'MembersController@index');
+Route::get('/', 'HomeController@index');
+Route::post('checkExistsEmail', 'HomeController@checkExistsEmail');
+Route::post('saveUserInfo', 'HomeController@saveUserInfo');
+Route::post('updateUserInfo', 'HomeController@updateUserInfo');
+Route::get('members', 'MembersController@index');
