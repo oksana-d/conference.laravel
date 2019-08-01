@@ -37,7 +37,7 @@ class MainController extends Controller
     public function updateUserInfo(Request $request)
     {
         if ($request->isMethod('post')) {
-            $imageName = null;
+            $imageName = 'no-image.png';
             $config = Config::get('share');
             $countMembers = Main::getCountAllMembers();
             if (!empty($request->file('photo'))) {
