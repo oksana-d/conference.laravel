@@ -29,6 +29,10 @@ div.error{
     font-weight: normal;
     color: #B40404;
 }
+label.error{
+    font-weight: normal;
+    color: #B40404;
+}
 input#datepicker.form-control{
     background-color: white;
 }

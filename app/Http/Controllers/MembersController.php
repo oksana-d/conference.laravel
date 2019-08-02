@@ -10,7 +10,11 @@ class MembersController extends Controller
     public function index()
     {
         $members = Members::getMembersInfo();
-        //var_dump($members).die();
+        foreach ($members as $member){
+            if($member->photo == null){
+                $member->photo = 'no-image.png';
+            }
+        }
         return view('members', compact('members'));
     }
 }
