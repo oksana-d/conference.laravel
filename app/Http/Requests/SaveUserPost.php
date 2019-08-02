@@ -24,13 +24,26 @@ class SaveUserPost extends FormRequest
     public function rules()
     {
         return [
-            'firstname' => 'required|string|max:50',
-            'lastname' => 'required|string|max:50',
-            'birthday' => 'required',
-            'email' => 'required|string|email|max:50',
-            'country' => 'required|string|max:2',
-            'phone' => 'required',
-            'reportSubject' => 'required|string|max:255'
+            'firstname' => 'required|string',
+            'lastname' => 'required|string',
+            'birthday' => 'required|date',
+            'email' => 'required|string|email|unique:user',
+            'country' => 'required',
+            'phone' => 'required|string',
+            'reportSubject' => 'required|string'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'firstname.required' => 'This field is required.',
+            'lastname.required' => 'This field is required.',
+            'birthday.required' => 'This field is required.',
+            'email.required' => 'This field is required.',
+            'country.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'reportSubject.required' => 'This field is required.'
         ];
     }
 }

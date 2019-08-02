@@ -15,24 +15,12 @@ class HomeController extends Controller
         return view('home');
     }
 
-//    public function checkExistsEmail(SaveUserPost $request)
-//    {
-//        if($request->isMethod('post') && $request->has('email')) {
-//            if (Main::checkExistsEmail($request->input('email'))) {
-//                echo(json_encode(false));
-//            } else {
-//                echo(json_encode(true));
-//            }
-//        }
-//    }
-
     public function saveUserInfo(SaveUserPost $request)
     {
         if($request->isMethod('post')) {
-            $request->validated();
             $idUser = Main::saveUserInfo($request->all());
             Session::put('idUser', $idUser);
-            return view('profile');
+            return response()->view('profile');
         }
     }
 

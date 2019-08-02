@@ -38,57 +38,43 @@ $(document).ready(function () {
         }
     });
 
+    $('#first-form').submit(function (e) {
+        e.preventDefault();
 
-    // $('#first-form').validate({
-    //     rules: {
-    //         firstname: {
-    //             required: true,
-    //             maxlength: 50
-    //         },
-    //         lastname: {
-    //             required: true,
-    //             maxlength: 50
-    //         },
-    //         birthday: {
-    //             required: true
-    //         },
-    //         reportSubject: {
-    //             required: true,
-    //             maxlength: 250
-    //         },
-    //         country: {
-    //             required: true
-    //         },
-    //         phone: {
-    //             required: true,
-    //             maxlength: 50
-    //         },
-    //         email: {
-    //             required: true,
-    //             email: true,
-    //             maxlength: 50,
-    //             remote: {
-    //                 url: '/checkExistsEmail',
-    //                 type: 'post'
-    //             }
-    //         }
-    //     },
-    //     messages: {
-    //         email: {
-    //             remote: 'User with this email already exists.'
-    //         }
-    //     },
-    //     submitHandler: function(form) {
-    //         $(form).ajaxSubmit({
-    //             url: '/saveUserInfo',
-    //             type: 'post',
-    //             enctype: 'multipart/form-data',
-    //             success: function (data) {
-    //                 $('#filling-form').html(data);
-    //             }
-    //         });
-    //     }
-    // });
+        axios.post('/saveUserInfo', {
+           'firstname' : $("input[name='firstname']").val(),
+            'lastname' : $("input[name='lastname']").val(),
+            'birthday' : $("input[name='birthday']").val(),
+            'email' : $("input[name='email']").val(),
+            'country' : $("#country").val(),
+            'phone' : $("input[name='phone']").val(),
+            'reportSubject' : $("input[name='reportSubject']").val(),
+
+        })
+            .then( (response) => {
+                $('#filling-form').html(response['data']);
+            })
+            .catch( (error) => {
+                //console.log(error.response);
+                const errors = error.response.data.errors;
+                console.log(errors);
+                $('#firstname-error').empty();
+                $('#lastname-error').empty();
+                $('#birthday-error').empty();
+                $('#email-error').empty();
+                $('#country-error').empty();
+                $('#phone-error').empty();
+                $('#reportSubject-error').empty();
+
+                $('#firstname-error').append(errors['firstname']);
+                $('#lastname-error').append(errors['lastname']);
+                $('#birthday-error').append(errors['birthday']);
+                $('#email-error').append(errors['email']);
+                $('#country-error').append(errors['country']);
+                $('#phone-error').append(errors['phone']);
+                $('#reportSubject-error').append(errors['reportSubject']);
+            });
+    });
 
     $('#second-form').validate({
         rules: {

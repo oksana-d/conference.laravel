@@ -9,28 +9,27 @@
         <div class="card-body">
             <div id="filling-form">
                 @if (!\Illuminate\Support\Facades\Session::has('idUser'))
-                    <form id="first-form" method="post" action="/saveUserInfo">
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                         @endforeach
-                        @csrf
+                    <form id="first-form">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="firstname">First name <span class="text-danger">*</span></label>
-                                    <input type="text"  class="form-control" name="firstname">
+                                    <input type="text" maxlength="50" class="form-control" name="firstname">
+                                    <div id="firstname-error" class="error"></div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="lastname">Last name <span class="text-danger">*</span></label>
-                                    <input type="text" maxlength="40" class="form-control" name="lastname">
+                                    <input type="text" maxlength="50" class="form-control" name="lastname">
+                                    <div id="lastname-error" class="error"></div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="birthday">Birthday <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="birthday" id="datepicker" readonly="readonly">
+                                    <div id="birthday-error" class="error"></div>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +38,8 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="email">Email <span class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" name="email">
+                                    <input type="email" maxlength="50" class="form-control" name="email">
+                                    <div id="email-error" class="error"></div>
                                 </div>
                             </div>
 
@@ -270,6 +270,7 @@
                                         <option value="ZM">Zambia</option>
                                         <option value="ZW">Zimbabwe</option>
                                     </select>
+                                    <div id="country-error" class="error"></div>
                                 </div>
                             </div>
 
@@ -277,6 +278,7 @@
                                 <div class="form-group">
                                     <label for="phone">Phone <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="phone-number" name="phone">
+                                    <div id="phone-error" class="error"></div>
                                 </div>
                             </div>
                         </div>
@@ -285,7 +287,8 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="reportSubject">Report subject <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="reportSubject">
+                                    <input type="text" maxlength="255" class="form-control" name="reportSubject">
+                                    <div id="reportSubject-error" class="error"></div>
                                 </div>
                             </div>
                         </div>

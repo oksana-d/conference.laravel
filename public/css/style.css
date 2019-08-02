@@ -25,7 +25,7 @@ input.form-control.error{
 select#country.form-control.error{
     border: 1px solid #dc3545;
 }
-label.error{
+div.error{
     font-weight: normal;
     color: #B40404;
 }
