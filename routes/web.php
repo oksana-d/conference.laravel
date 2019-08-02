@@ -13,7 +13,6 @@
 
 use App\Main;
 Route::get('/', 'HomeController@index');
-Route::post('checkExistsEmail', 'HomeController@checkExistsEmail');
 Route::post('saveUserInfo', 'HomeController@saveUserInfo');
 Route::post('updateUserInfo', 'HomeController@updateUserInfo');
 Route::get('members', 'MembersController@index');
