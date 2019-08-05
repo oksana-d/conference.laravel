@@ -29,9 +29,8 @@ $(document).ready(function () {
     var country = 'CA';
     $('#phone-number').mask(phoneMask[country]);
     $.mask.definitions['*'] = "[0-9]";
-    $('body').on('change', '#country', function () {
-        //console.log($('#country option:selected').val());
-        var country = $('#country option:selected').val();
+    $('#country').change(function () {
+        var country = this.val();
         $('#phone-number').mask(phoneMask[country]);
     });
 
@@ -79,36 +78,28 @@ $(document).ready(function () {
             });
     });
 
-    $('#second-form').validate({
-        rules: {
-            photo: {
-                extension: "png|jpe?g|gif"
-            }
-        },
-        messages: {
-            photo: {
-                extension: 'Only files .jpg, .png, .gif allowed.'
-            }
-        },
-        submitHandler: function(form) {
-            $.ajax({
-                url        : '/updateUserInfo',
-                type       : 'post',
-                dataType: 'text',
-                data       : new FormData(form),
-                enctype: 'multipart/form-data',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    $('#filling-form').html(data);
-                }
+    $('#second-form').submit(function (e) {
+        e.preventDefault();
+
+        axios.post('/updateUserInfo', {
+            'company' : $("input[name='company']").val(),
+            'position' : $("input[name='position']").val(),
+            'photo' : $('#photo').type,
+            'aboutMe' : $("textarea[name='aboutMe']").val()
+
+        })
+            .then( (response) => {
+                $('#filling-form').html(response['data']);
+            })
+            .catch( (error) => {
+                console.log(error.response);
+                const errors = error.response.data.errors;
+                console.log(errors);
             });
-        }
     });
 
     function  validate() {
-        $('body').on('change', '#photo', function () {
+        $(document).on('change', '#photo', function () {
 
             if (this.files[0].size > 2000000) {
                 $("#photo-size-error").html("File must be less than 2 mb.");

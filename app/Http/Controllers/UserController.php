@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\UpdateUserPost;
 
 class UserController extends Controller
 {
@@ -24,7 +25,7 @@ class UserController extends Controller
         }
     }
 
-    public function updateUserInfo(Request $request)
+    public function updateUserInfo(UpdateUserPost $request)
     {
         if ($request->isMethod('post')) {
             $imageName = 'no-image.png';
@@ -39,7 +40,7 @@ class UserController extends Controller
             User::updateUserInfo($request->all(), Session::get('idUser'), $imageName);
             Session()->forget('idUser');
 
-            return view('share', [ 'link' => $config['share']['link'],
+            return response()->view('share', [ 'link' => $config['share']['link'],
                 'text' => $config['share']['text'],
                 'countMembers' => $countMembers]);
         }
