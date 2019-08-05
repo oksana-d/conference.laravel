@@ -121,5 +121,15 @@ $(document).ready(function () {
     }
     validate();
 
+    $(':checkbox').change(function () {
+        axios.put('/admin' + '/changeUserInfo/' + $(this).val())
+            .then(function (response) {
+                console.log(response['data']);
+            })
+            .catch(function () {
+                console.log('Error: show user failed')
+            })
+
+    });
 
 });

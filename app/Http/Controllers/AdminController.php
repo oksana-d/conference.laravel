@@ -20,7 +20,8 @@ class AdminController extends Controller
     }
 
     public function changeUserInfo($id){
-        if (User::getShowUser($id)){
+        $showUser = User::getShowUser($id);
+        if ($showUser[0]->show == 1){
             User::changeUserInfo($id, false);
         } else {
             User::changeUserInfo($id, true);

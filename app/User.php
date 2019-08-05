@@ -40,7 +40,7 @@ class User extends Model
     }
 
     public static function getShowUser($id){
-        $show = DB::table('user')->where('id', $id);
+        $show = DB::table('user')->select('show')->where('idUser', $id)->get();
         return $show;
     }
 
