@@ -11,7 +11,7 @@ class Members extends Model
     {
         $membersInfo = DB::table('user')->
                         leftJoin('profile', 'user.idUser', '=', 'profile.idUser')->
-                        select('user.idUser', 'photo', 'firstname', 'lastname', 'reportSubject', 'email')->
+                        select('user.idUser', 'photo', 'firstname', 'lastname', 'reportSubject', 'email', 'show')->
                         get();
         return $membersInfo;
     }

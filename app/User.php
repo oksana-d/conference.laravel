@@ -2,38 +2,51 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    public static function saveUserInfo($data)
+    {
+        $id = DB::table('user')->insertGetId([
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
+            'birthday' => date('Y-m-d', strtotime($data['birthday'])),
+            'reportSubject' => $data['reportSubject'],
+            'country' => $data['country'],
+            'phone' => $data['phone'],
+            'email' => $data['email'],
+        ]);
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+        return $id;
+    }
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public static function updateUserInfo($data, $id, $photo)
+    {
+        DB::table('profile')->insert([
+            'idUser' => $id,
+            'company' => $data['company'],
+            'position' => $data['position'],
+            'aboutMe' => $data['aboutMe'],
+            'photo' => $photo
+        ]);
+    }
+
+    public static function getCountAllMembers(){
+        $countUser = DB::table('user')->count();
+        return $countUser;
+    }
+
+    public static function getShowUser($id){
+        $show = DB::table('user')->where('id', $id);
+        return $show;
+    }
+
+    public static function changeUserInfo($id, $show){
+        DB::table('user')
+            ->where('idUser', $id)
+            ->update(['show' => $show]);
+    }
 }

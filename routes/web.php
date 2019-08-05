@@ -11,8 +11,21 @@
 |
 */
 
-use App\Main;
-Route::get('/', 'HomeController@index');
-Route::post('saveUserInfo', 'HomeController@saveUserInfo');
-Route::post('updateUserInfo', 'HomeController@updateUserInfo');
+Route::get('/', 'UserController@index');
+Route::post('saveUserInfo', 'UserController@saveUserInfo');
+Route::post('updateUserInfo', 'UserController@updateUserInfo');
 Route::get('members', 'MembersController@index');
+
+
+Auth::routes();
+
+Route::get('logout', 'Auth\LoginController@logout');
+
+Route::match(['get','post'], 'register', function (){
+    return redirect('/');
+});
+
+Route::prefix('admin')->group(function ($id){
+    Route::get('/', 'AdminController@index');
+    Route::put('/changeUserInfo/{id}', 'AdminController@changeUserInfo');
+});
