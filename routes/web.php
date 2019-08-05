@@ -17,15 +17,11 @@ Route::post('updateUserInfo', 'UserController@updateUserInfo');
 Route::get('members', 'MembersController@index');
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('logout', 'Auth\LoginController@logout');
 
-Route::match(['get','post'], 'register', function (){
-    return redirect('/');
-});
-
 Route::prefix('admin')->group(function ($id){
-    Route::get('/', 'AdminController@index');
+    Route::get('/members', 'AdminController@index');
     Route::put('/changeUserInfo/{id}', 'AdminController@changeUserInfo');
 });
