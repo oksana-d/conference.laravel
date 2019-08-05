@@ -4,6 +4,7 @@ $(document).ready(function () {
             center: {lat: 34.101511, lng: -118.343705},
             zoom: 16
         };
+
         var map = new google.maps.Map(document.getElementById("map"), opt);
         var marker = new google.maps.Marker({
             position: opt.center,
@@ -12,11 +13,13 @@ $(document).ready(function () {
         var infowindow = new google.maps.InfoWindow({
             content: "7060 Hollywood Blvd, Los Angeles, CA"
         });
-        marker.addListener('click', function() {
+        marker.addListener('click', function () {
             infowindow.open(map, marker);
         });
     }
+    if (!$('#map').length == 0) {
         initMap();
+    }
 
     $('#datepicker').datepicker({
         endDate: "0d",
@@ -103,4 +106,20 @@ $(document).ready(function () {
             });
         }
     });
+
+    function  validate() {
+        $('body').on('change', '#photo', function () {
+
+            if (this.files[0].size > 2000000) {
+                $("#photo-size-error").html("File must be less than 2 mb.");
+                $('#submit').prop('disabled', true);
+            } else {
+                $('#submit').prop('disabled', false);
+                $("#photo-size-error").empty();
+            }
+        });
+    }
+    validate();
+
+
 });

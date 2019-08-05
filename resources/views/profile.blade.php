@@ -15,7 +15,8 @@
         <div class="col-md-4 col-xl-4">
             <div class="form-group">
                 <label for="photo">Photo</label>
-                <input type="file" name="photo">
+                <input type="file" name="photo" id="photo">
+                <div id="photo-size-error" class="error" for="photo"></div>
             </div>
         </div>
     </div>
@@ -29,7 +30,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <button type="submit" class="btn btn-success float-right">Finish</button>
+            <button id="submit" type="submit" class="btn btn-success float-right">Finish</button>
         </div>
     </div>
 </form>
@@ -61,4 +62,18 @@
             });
         }
     });
+
+    function  validate() {
+        $('body').on('change', '#photo', function () {
+
+            if (this.files[0].size > 2000000) {
+                $("#photo-size-error").html("File must be less than 2 mb.");
+                $('#submit').prop('disabled', true);
+            } else {
+                $('#submit').prop('disabled', false);
+                $("#photo-size-error").empty();
+            }
+        });
+    }
+    validate();
 </script>
