@@ -22,6 +22,8 @@ Auth::routes(['register' => false]);
 Route::get('logout', 'Auth\LoginController@logout');
 
 Route::prefix('admin')->group(function ($id){
+    Route::get('/', 'Auth\LoginController@showLoginForm')->name('admin');
+    Route::post('/', 'Auth\LoginController@login');
     Route::get('/members', 'AdminController@index');
     Route::put('/changeUserInfo/{id}', 'AdminController@changeUserInfo');
 });

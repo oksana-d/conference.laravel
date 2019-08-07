@@ -43,7 +43,8 @@ class SaveUserPost extends FormRequest
             'email.required' => 'This field is required.',
             'country.required' => 'This field is required.',
             'phone.required' => 'This field is required.',
-            'reportSubject.required' => 'This field is required.'
+            'reportSubject.required' => 'This field is required.',
+            'email.unique' => 'Member with this email already exists.'
         ];
     }
 }

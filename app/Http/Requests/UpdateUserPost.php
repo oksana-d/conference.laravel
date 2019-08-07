@@ -24,7 +24,7 @@ class UpdateUserPost extends FormRequest
     public function rules()
     {
         return [
-            'photo' => 'mimes:jpeg,bmp,png'
+            'photo' => 'mimes:jpeg,png|max:2000',
         ];
     }
 }

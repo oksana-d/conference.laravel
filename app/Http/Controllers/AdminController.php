@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Members;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     public function index(){
-        $members = Members::getMembersInfo();
+        $members = User::getUserInfo();
         foreach ($members as $member) {
             if ($member->photo == null) {
                 $member->photo = 'no-image.png';

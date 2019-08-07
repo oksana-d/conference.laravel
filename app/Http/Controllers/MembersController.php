@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Members;
 use Illuminate\Http\Request;
+use App\User;
 
 class MembersController extends Controller
 {
     public function index()
     {
-        $members = Members::getMembersInfo();
+        $members = User::getUserInfo();
         foreach ($members as $member){
             if($member->photo == null){
                 $member->photo = 'no-image.png';

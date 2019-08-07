@@ -319,6 +319,7 @@
                                 <div class="form-group">
                                     <label for="photo">Photo</label>
                                     <input type="file" name="photo" id="photo">
+                                    <div id="photo-error" class="error"></div>
                                     <div id="photo-size-error" class="error" for="photo"></div>
                                 </div>
                             </div>
