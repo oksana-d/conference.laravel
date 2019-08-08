@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class MembersController extends Controller
 {
@@ -11,13 +12,17 @@ class MembersController extends Controller
      */
     public function index()
     {
-        $members = User::getUserInfo();
-        foreach ($members as $member) {
-            if ($member->photo == null) {
-                $member->photo = 'no-image.png';
+        if (! Auth::check()) {
+            $members = User::getUserInfo();
+            foreach ($members as $member) {
+                if ($member->photo == null) {
+                    $member->photo = 'no-image.png';
+                }
             }
-        }
 
-        return view('members', compact('members'));
+            return view('members', compact('members'));
+        } else {
+            return redirect()->action('AdminController@index');
+        }
     }
 }

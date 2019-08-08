@@ -12,7 +12,7 @@ class User extends Model
     /**
      * Save user information from the first form.
      *
-     * @param  array  $data Role first form data
+     * @param  array  $data  Role first form data
      *
      * @return int
      */
@@ -34,11 +34,11 @@ class User extends Model
     /**
      * Update user information from the second form.
      *
-     * @param  array  $data Role second form data
-     * @param  int  $id Role id member
-     * @param string $photo Role photo member
+     * @param  array  $data  Role second form data
+     * @param  int  $id  Role id member
+     * @param  string  $photo  Role photo member
      *
-     *  @return void
+     * @return void
      */
     public static function updateUserInfo($data, $id, $photo)
     {
@@ -80,8 +80,8 @@ class User extends Model
     /**
      * Change the visibility of the conference participants in the list All members.
      *
-     * @param  int  $id Role id member
-     * @param  int  $show Role of visibility value of the member in the list All members
+     * @param  int  $id  Role id member
+     * @param  int  $show  Role of visibility value of the member in the list All members
      *
      * @return void
      */
@@ -112,7 +112,7 @@ class User extends Model
             leftJoin('profile', 'user.idUser', '=', 'profile.idUser')->
             select('user.idUser', 'photo', 'firstname', 'lastname', 'reportSubject', 'email', 'show')->
             paginate(10, array('user.idUser', 'photo', 'firstname', 'lastname', 'reportSubject', 'email', 'show'));
-
+            
             return $membersInfo;
         }
     }
