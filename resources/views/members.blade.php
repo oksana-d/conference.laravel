@@ -40,8 +40,8 @@
                                             <input type="checkbox" class="custom-control-input"
                                                    value="{{ $member->idUser }}" id="userCheckBox{{ $member->idUser }}"
                                                    @if($member->show) checked @endif/>
-                                            <label class="custom-control-label" for="userCheckBox{{ $member->idUser }}">Display
-                                                member</label>
+                                            <label class="custom-control-label" for="userCheckBox{{ $member->idUser }}">
+                                                @if($member->show) Hide this member in the list of All members  @else Show this member in the list of All members @endif</label>
                                         </div>
                                     </td>
                                 @endif

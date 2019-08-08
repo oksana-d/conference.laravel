@@ -30,7 +30,7 @@
   $('#phone-number').mask(phoneMask['CA'])
   $.mask.definitions['*'] = '[0-9]'
   $('#country').change(function () {
-    var country = $(this).val()
+    let country = $(this).val()
     $('#phone-number').mask(phoneMask[country])
   })
 
@@ -96,9 +96,12 @@
   })
 
   $(':checkbox').change(function () {
-    axios.put('/admin' + '/changeUserInfo/' + $(this).val())
+    let id = $(this).val()
+    console.log($(this).val())
+    axios.put('/admin' + '/changeUserInfo/' + id)
       .then(function (response) {
-        console.log(response['data'])
+        console.log($(this).id)
+        $("label[for='userCheckBox" + id + "']").html(response['data']['message'])
       })
       .catch(function () {
         console.log('Error: show user failed')
