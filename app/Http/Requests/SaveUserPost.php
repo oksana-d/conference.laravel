@@ -34,6 +34,11 @@ class SaveUserPost extends FormRequest
         ];
     }
 
+    /**
+     * Change validation messages.
+     *
+     * @return array
+     */
     public function messages()
     {
         return [

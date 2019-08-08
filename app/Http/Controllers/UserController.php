@@ -7,14 +7,25 @@ use App\User;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\UpdateUserPost;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
+    /**
+     * Show the first form.
+     */
     public function index()
     {
         return view('user');
     }
 
+    /**
+     * Save user information from the first form.
+     *
+     * @param  SaveUserPost  $request Role of valid data of the first form
+     *
+     * @return Response
+     */
     public function saveUserInfo(SaveUserPost $request)
     {
         if ($request->isMethod('post')) {
@@ -25,6 +36,13 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * Save user information from the first form.
+     *
+     * @param  UpdateUserPost  $request  Role of valid data of the second form
+     *
+     * @return Response
+     */
     public function updateUserInfo(UpdateUserPost $request)
     {
         if ($request->isMethod('post')) {

@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+    /**
+     * Get the information of the conference participants.
+     */
     public function index()
     {
         if (Auth::check()) {
@@ -23,6 +26,13 @@ class AdminController extends Controller
         }
     }
 
+    /**
+     * Change the visibility of the conference participants in the list All members.
+     *
+     * @param  int  $id  Role id member
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function changeUserInfo($id)
     {
         $showUser = User::getShowUser($id);

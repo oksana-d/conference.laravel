@@ -6,6 +6,9 @@ use App\User;
 
 class MembersController extends Controller
 {
+    /**
+     * Get the information of the conference participants.
+     */
     public function index()
     {
         $members = User::getUserInfo();
