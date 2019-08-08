@@ -58,7 +58,7 @@ class User extends Model
      */
     public static function getCountAllMembers()
     {
-        $countUser = DB::table('user')->count();
+        $countUser = DB::table('user')->where('show', '=', '1')->count();
 
         return $countUser;
     }
