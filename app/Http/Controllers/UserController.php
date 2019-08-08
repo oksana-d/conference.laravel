@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SaveUserPost;
 use App\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\UpdateUserPost;
@@ -18,9 +17,10 @@ class UserController extends Controller
 
     public function saveUserInfo(SaveUserPost $request)
     {
-        if($request->isMethod('post')) {
+        if ($request->isMethod('post')) {
             $idUser = User::saveUserInfo($request->all());
             Session::put('idUser', $idUser);
+
             return response()->view('profile');
         }
     }
@@ -31,19 +31,20 @@ class UserController extends Controller
             $imageName = 'no-image.png';
             $config = Config::get('share');
             $countMembers = User::getCountAllMembers();
-            if (!empty($request->file('photo'))) {
+            if (! empty($request->file('photo'))) {
                 $destinationPath = 'users';
-                $imageName = uniqid() . '.' . $request->file('photo')->getClientOriginalExtension();
+                $imageName = uniqid().'.'.$request->file('photo')->getClientOriginalExtension();
                 $request->file('photo')->move($destinationPath, $imageName);
             }
 
             User::updateUserInfo($request->all(), Session::get('idUser'), $imageName);
             Session()->forget('idUser');
 
-            return response()->view('share', [ 'link' => $config['share']['link'],
-                'text' => $config['share']['text'],
-                'countMembers' => $countMembers]);
+            return response()->view('share', [
+                'link'         => $config['share']['link'],
+                'text'         => $config['share']['text'],
+                'countMembers' => $countMembers,
+            ]);
         }
     }
-
 }

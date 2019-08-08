@@ -1,105 +1,105 @@
-#map{
-    height: 450px;
-    width: 100%;
+#map {
+  height: 450px;
+  width: 100%;
 }
-.card{
-    border: #BCE8F1;
-    margin: 35px auto;
+.card {
+  border: #bce8f1;
+  margin: 35px auto;
 }
-div.card-header{
-    background-color: #E0F2F7;
-    padding: 10px 20px;
+div.card-header {
+  background-color: #e0f2f7;
+  padding: 10px 20px;
 }
-p.font-weight-bold{
-    color: #31708f;
-    margin: 0px;
-    font-size: 15px;
+p.font-weight-bold {
+  color: #31708f;
+  margin: 0px;
+  font-size: 15px;
 }
-label{
-    font-size: 15px;
-    font-weight: 700;
+label {
+  font-size: 15px;
+  font-weight: 700;
 }
-input.form-control.error{
-    border: 1px solid #dc3545;
+input.form-control.error {
+  border: 1px solid #dc3545;
 }
-select#country.form-control.error{
-    border: 1px solid #dc3545;
+select#country.form-control.error {
+  border: 1px solid #dc3545;
 }
-label.error{
-    font-weight: normal;
-    color: #B40404;
+label.error {
+  font-weight: normal;
+  color: #b40404;
 }
-div.error{
-    font-size: 15px;
-    font-weight: normal;
-    color: #B40404;
+div.error {
+  font-size: 15px;
+  font-weight: normal;
+  color: #b40404;
 }
-input#datepicker.form-control{
-    background-color: white;
+input#datepicker.form-control {
+  background-color: white;
 }
-.share img{
-    height: 70px;
-    width: 73px;
+.share img {
+  height: 70px;
+  width: 73px;
 }
-.share{
-    justify-content: center;
+.share {
+  justify-content: center;
 }
 .profile-img {
-    max-height: 100px;
+  max-height: 100px;
 }
-h1.text-center{
-    margin-top: 10px;
-    margin-bottom: 10px;
+h1.text-center {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-a.members.btn.btn-success.float-right{
-    margin-top: 10px;
-    margin-bottom: 10px;
+a.members.btn.btn-success.float-right {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-h1{
-    justify-content: center;
+h1 {
+  justify-content: center;
 }
-.notfound{
-    padding: 50px;
-    margin: auto;
-    justify-content: center;
-    text-align: center;
+.notfound {
+  padding: 50px;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
 }
-.notfound img{
-    height: auto;
-    width: 100%;
-    max-width: 500px;
+.notfound img {
+  height: auto;
+  width: 100%;
+  max-width: 500px;
 }
- h2 {
-    font-family: 'Titillium Web', sans-serif;
-     color: #31708f;
-    font-size: 26px;
-    font-weight: 700;
-    margin: 0;
+h2 {
+  font-family: 'Titillium Web', sans-serif;
+  color: #31708f;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
 }
 .notfound p {
-    font-family: 'Montserrat', sans-serif;
-    color: #31708f;
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 0px;
-    padding: 0px;
-    text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  color: #31708f;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  padding: 0px;
+  text-transform: uppercase;
 }
 .notfound a {
-    font-family: 'Titillium Web', sans-serif;
-    text-transform: uppercase;
-    color: #fff;
-    text-decoration: none;
-    border: none;
-    background: #28a745;
-    padding: 10px 40px;
-    font-size: 14px;
-    font-weight: 700;
-    border-radius: 1px;
-    margin-top: 15px;
-    border-radius: .25rem;
+  font-family: 'Titillium Web', sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  background: #28a745;
+  padding: 10px 40px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 1px;
+  margin-top: 15px;
+  border-radius: .25rem;
 }
 .notfound a:hover {
-    background: #218838;
-    color: #fff;
+  background: #218838;
+  color: #fff;
 }

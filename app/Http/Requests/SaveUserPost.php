@@ -24,27 +24,27 @@ class SaveUserPost extends FormRequest
     public function rules()
     {
         return [
-            'firstname' => 'required|string',
-            'lastname' => 'required|string',
-            'birthday' => 'required|date',
-            'email' => 'required|string|email|unique:user',
-            'country' => 'required',
-            'phone' => 'required|string',
-            'reportSubject' => 'required|string'
+            'firstname'     => 'required|string',
+            'lastname'      => 'required|string',
+            'birthday'      => 'required|date',
+            'email'         => 'required|string|email|unique:user',
+            'country'       => 'required',
+            'phone'         => 'required|string',
+            'reportSubject' => 'required|string',
         ];
     }
 
     public function messages()
     {
         return [
-            'firstname.required' => 'This field is required.',
-            'lastname.required' => 'This field is required.',
-            'birthday.required' => 'This field is required.',
-            'email.required' => 'This field is required.',
-            'country.required' => 'This field is required.',
-            'phone.required' => 'This field is required.',
+            'firstname.required'     => 'This field is required.',
+            'lastname.required'      => 'This field is required.',
+            'birthday.required'      => 'This field is required.',
+            'email.required'         => 'This field is required.',
+            'country.required'       => 'This field is required.',
+            'phone.required'         => 'This field is required.',
             'reportSubject.required' => 'This field is required.',
-            'email.unique' => 'Member with this email already exists.'
+            'email.unique'           => 'Member with this email already exists.',
         ];
     }
 }

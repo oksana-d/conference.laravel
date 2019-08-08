@@ -28,7 +28,8 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="birthday">Birthday <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="birthday" id="datepicker" readonly="readonly">
+                                    <input type="text" class="form-control" name="birthday" id="datepicker"
+                                           readonly="readonly">
                                     <div id="birthday-error" class="error"></div>
                                 </div>
                             </div>

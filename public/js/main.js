@@ -101,7 +101,7 @@
     axios.put('/admin' + '/changeUserInfo/' + id)
       .then(function (response) {
         console.log($(this).id)
-        $("label[for='userCheckBox" + id + "']").html(response['data']['message'])
+        $('label[for=\'userCheckBox' + id + '\']').html(response['data']['message'])
       })
       .catch(function () {
         console.log('Error: show user failed')

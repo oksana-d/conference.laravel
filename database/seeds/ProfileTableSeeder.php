@@ -14,17 +14,17 @@ class ProfileTableSeeder extends Seeder
     {
         DB::table('profile')->insert([
             'idProfile' => '1',
-            'idUser' => '1',
-            'company' => 'albedo',
-            'position' => 'Web-developer',
-            'photo' => 'no-image.png'
+            'idUser'    => '1',
+            'company'   => 'albedo',
+            'position'  => 'Web-developer',
+            'photo'     => 'no-image.png',
         ]);
         DB::table('profile')->insert([
             'idProfile' => '2',
-            'idUser' => '2',
-            'company' => 'bwt',
-            'position' => 'Web-developer',
-            'photo' => 'no-image.png'
+            'idUser'    => '2',
+            'company'   => 'bwt',
+            'position'  => 'Web-developer',
+            'photo'     => 'no-image.png',
         ]);
     }
 }
