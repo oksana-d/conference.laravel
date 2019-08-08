@@ -11,7 +11,7 @@
             <div class="col">
                 <div class="table-responsive text-nowrap">
                     <table class="table table-hover">
-                        <thead>
+                        <thead class="thead-light">
                         <tr>
                             <th>#</th>
                             <th>Photo</th>
